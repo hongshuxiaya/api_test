@@ -1,0 +1,11 @@
+- name: rsa加密接口
+  base_url: ${get_base_url(base_user_url)}
+  request:
+    method: post
+    url: /rsalogin
+    headers: null
+    data:
+      username: ${rsa_public_secret(admin)}
+      password: ${rsa_public_secret(123)}
+  validate:
+    - equals: {'error_code': 0, 'message': 'RSA加密登陆成功！'}

@@ -1,0 +1,11 @@
+- name: php论坛登录
+  base_url: ${get_base_url(base_php_url)}
+  request:
+    method: post
+    url: /phpwind/index.php?m=u&c=login&a=dorun
+    headers:
+      Accept: application/json, text/javascript, /; q=0.01
+      X-Requested-With: XMLHttpRequest
+    json: {"username": "peiyu","password":123456,"csrf_token": "${get_extract_data(csrf_token)}","backurl":"http://47.107.116.139/phpwind/","invite":""}
+  validate:
+    - contains: referer

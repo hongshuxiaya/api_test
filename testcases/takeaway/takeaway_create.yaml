@@ -1,0 +1,14 @@
+- name: 外卖任务创建
+  base_url: ${get_base_url(base_takeaway_url)}
+  request:
+    method: post
+    url: /rest-v2/todo
+    headers:
+      Content-Type: application/json
+      Authorization: Bearer ${get_extract_data(token)}
+    json: {"title": "null","is_done": false}
+  # json提取id
+  extract:
+    todo_id: id
+  validate:
+    - contains: id

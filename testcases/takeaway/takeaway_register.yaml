@@ -1,0 +1,9 @@
+- name: 外卖注册
+  base_url: ${get_base_url(base_takeaway_url)}
+  request:
+    method: post
+    url: /rest-v2/login/sign_up
+    headers: null
+    json: {"password": "12345678","email": "${get_random_number(10000000,99999999)}@qq.com"}
+  validate:
+    - contains: create_datetime

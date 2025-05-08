@@ -1,0 +1,11 @@
+- name: 文件上传接口
+  base_url: ${get_base_url(base_weixin_url)}
+  request:
+    method: post
+    url: /cgi-bin/media/uploadimg?access_token=${get_extract_data(access_token)}
+    headers: Content-type:multipart/form-data; charset=utf-8
+    files:
+      media: ./logo.png
+  validate:
+    - equals: {status_code: 200}
+    - contains: url

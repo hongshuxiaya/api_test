@@ -1,0 +1,11 @@
+- name: 外卖登录
+  base_url: ${get_base_url(base_takeaway_url)}
+  request:
+    method: post
+    url: /rest-v2/login/access_token
+    headers: null
+    json: {"password": "12345678","email": "1144961647@qq.com"}
+  extract:
+    token: '"access_token":"(.*?)"'
+  validate:
+    - contains: access_token

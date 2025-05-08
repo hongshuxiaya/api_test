@@ -1,0 +1,11 @@
+- name: 外卖任务修改
+  base_url: ${get_base_url(base_takeaway_url)}
+  request:
+    method: put
+    url: /rest-v2/todo/todo_id=${get_extract_data(todo_id)}
+    headers:
+      Content-Type: application/json
+      Authorization: Bearer ${get_extract_data(token)}
+    json: {"title": "null","is_done": false}
+  validate:
+    - contains: id

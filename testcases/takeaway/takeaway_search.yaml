@@ -1,0 +1,10 @@
+- name: 外卖任务查询
+  base_url: ${get_base_url(base_takeaway_url)}
+  request:
+    method: get
+    url: /rest-v2/todo
+    headers:
+      Content-Type: application/json
+      Authorization: Bearer ${get_extract_data(token)}
+  validate:
+    - contains: items

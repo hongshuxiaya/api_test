@@ -1,0 +1,10 @@
+- name: sign签名
+  base_url: ${get_base_url(base_php_url)}
+  request:
+    method: post
+    url: /phpwind/index.php?m=u&c=login&a=dorun
+    headers:
+      sign: ${signs(testcases/php/sign_case.yaml)}
+    data:
+      csrf_token: ${get_extract_data(csrf_token)}
+  validate:

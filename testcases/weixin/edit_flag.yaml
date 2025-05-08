@@ -1,0 +1,10 @@
+- name: 编辑标签
+  base_url: ${get_base_url(base_weixin_url)}
+  request:
+    method: POST
+    headers: null
+    url: /cgi-bin/tags/update?access_token=${get_extract_data(access_token)}
+    json: {"tag":{"id":113,"name":"裴育${get_random_number(10000,99999)}"}}
+  validate:
+    - equals: {errcode: 0}
+    - equals: {errmsg: ok}

@@ -1,0 +1,16 @@
+- name: 新增用户
+  base_url: ${get_base_url(base_shop_url)}
+  request:
+    url: /dar/user/addUser
+    method: POST
+    headers:
+      Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+    data:
+      username: adduser
+      password: 123456
+      role_id: 123456789
+      dates: '2023-12-31'
+      phone: 13800000000
+      token: ${get_extract_data(token)}
+  validate:
+    - equals: {'error_code': 0, 'msg': '新增成功！', 'msg_code': 200}

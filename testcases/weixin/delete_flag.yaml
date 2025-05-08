@@ -1,0 +1,10 @@
+- name: 删除标签
+  base_url: ${get_base_url(base_weixin_url)}
+  request:
+    method: POST
+    headers: null
+    url: /cgi-bin/tags/delete?access_token=${get_extract_data(access_token)}
+    json: {"tag":{"id":113}}
+  validate:
+    - equals: {errcode: 0}
+    - equals: {errmsg: ok}

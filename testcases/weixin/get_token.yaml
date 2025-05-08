@@ -1,0 +1,22 @@
+- name: $ddt{name}
+  base_url: ${get_base_url(base_weixin_url)}
+  request:
+    method: GET
+    url: /cgi-bin/token
+    headers: null
+    params:
+      appid: $ddt{appid}
+      secret: $ddt{secret}
+      grant_type: $ddt{grant_type}
+  parameterize:
+    - ['name','appid','secret','grant_type','assert_str']
+    - ['获取access_token统一鉴权码','wx8cbefbfc3b8c2f3b','4fa4582bf6b362742f079a3b7709ccad','client_credential','access_token']
+    - ['appid必填项检查',"",'4fa4582bf6b362742f079a3b7709ccad','client_credential','errcode']
+    - ['secret必填项检查','wx8cbefbfc3b8c2f3b',"",'client_credential','errcode']
+  # 支持json表达式提取、正则表达式提取
+  extract:
+    access_token: '"access_token":"(.*?)"'
+    expires_in: $.expires_in
+  validate:
+    - equals: {status_code: 200}
+    - contains: $ddt{assert_str}

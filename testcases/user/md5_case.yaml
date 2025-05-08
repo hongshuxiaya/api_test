@@ -1,0 +1,11 @@
+- name: md5加密接口
+  base_url: ${get_base_url(base_user_url)}
+  request:
+    method: post
+    url: /md5login
+    headers: null
+    data:
+      username: ${md5_encode(admin)}
+      password: ${md5_encode(123)}
+  validate:
+    - equals: {'error_code': 0, 'message': 'MD5加密登陆成功！'}

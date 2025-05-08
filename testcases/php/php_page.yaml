@@ -1,0 +1,10 @@
+- name: php论坛首页
+  base_url: ${get_base_url(base_php_url)}
+  request:
+    method: get
+    url: /phpwind/
+    headers: null
+  extract:
+    csrf_token: 'name="csrf_token" value="(.*?)"'
+  validate:
+    - equals: {status_code: 200}
