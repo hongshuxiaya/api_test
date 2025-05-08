@@ -1,0 +1,65 @@
+# 项目名称
+project_name: 接口自动化测试
+
+# 基础路径配置
+BASE:
+  base_weixin_url: https://api.weixin.qq.com
+  base_user_url: http://101.34.221.219:5000
+  base_php_url: http://47.107.116.139
+  base_takeaway_url: https://api.tttt.one
+  base_shop_url: http://127.0.0.1:8080
+
+# 日志配置
+LOG:
+  log_level: info
+  console_log_format: '%(log_color)s[%(levelname)s]-[%(asctime)s]-%(message)s'
+  file_log_format: '[%(levelname)s]-[%(asctime)s]-%(message)s'
+
+# 设置接口超时时间，单位/s
+API_TIMEOUT:
+  timeout: 10
+
+# jenkins配置
+JENKINS:
+  url: http://127.0.0.1:8080/jenkins/
+  username: 'peiyu'
+  password: '123456'
+  timeout: 30
+  job_name: api_test_frame
+
+# mysql数据库配置
+MYSQL:
+  host: api.lemonban.com
+  database: future
+  port: 3306
+  user: future
+  password: 123456
+
+# oracle数据库配置
+ORACLE:
+  host: api.lemonban.com
+  service_name: future
+  port: 1521
+  user: future
+  password: 1234568
+
+# 钉钉通知配置
+DINGDING:
+  secret: SECdfb951a25ae2485648320d82a83e64095916556f0e4e2ab03e268f919c9177a1
+  url: https://oapi.dingtalk.com/robot/send?access_token=f8438068a6a6e4c98f6476b90340357fa6aafd32d93e70c67112dd8c5bd9c5d7
+
+# 企业微信通知配置
+WEIXIN:
+  url: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=1ed59978-7084-411c-abba-32eb1b13b2d7
+
+# QQ邮箱配置
+MAIL:
+  host: smtp.qq.com
+  send_user: 1144961647@qq.com
+  password: bggnwtkonvrsjbac
+  receive_user: 1144961647@qq.com
+  cc_user:
+  bcc_user:
+
+# 测试报告类型，生成的测试报告类型，可以生成两个风格的报告，allure或html
+REPORT_TYPE: allure
